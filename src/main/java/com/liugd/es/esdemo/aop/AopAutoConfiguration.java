@@ -14,7 +14,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import com.sitech.ijcf.boot.core.aop.advisor.DefaultTransactionInterceptor;
 
 /**
- * @author qianym
+ * @author liugd
  * @create 2018/5/14
  * @since 3.0
  */

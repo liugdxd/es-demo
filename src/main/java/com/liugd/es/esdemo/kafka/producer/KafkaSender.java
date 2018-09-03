@@ -1,5 +1,6 @@
 package com.liugd.es.esdemo.kafka.producer;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -10,8 +11,13 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class KafkaSender {
+public class KafkaSender implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3198648376706221936L;
+
 	Logger log = LoggerFactory.getLogger(getClass());
 	
     @Autowired

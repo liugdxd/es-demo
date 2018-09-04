@@ -1,7 +1,6 @@
 package com.liugd.es.esdemo.kafka.producer;
 
-import org.apache.kafka.clients.producer.Callback;
-import org.apache.kafka.clients.producer.RecordMetadata;
+import org.springframework.util.concurrent.ListenableFutureCallback;
 
 /**
  * 
@@ -13,17 +12,17 @@ import org.apache.kafka.clients.producer.RecordMetadata;
  * @date ：2018年8月31日 下午4:39:15 
  *
  */
-public class DemoProduceCallback implements Callback{
-	
+public class DemoProduceCallback implements ListenableFutureCallback<Object>{
+
 	@Override
-	public void onCompletion(RecordMetadata metadata, Exception exception) {
-		if (exception != null) {
-			exception.printStackTrace();
-		} 
-		
+	public void onFailure(Throwable ex) {
+		ex.getMessage();
 	}
-	
-	
-	
+
+
+	@Override
+	public void onSuccess(Object result) {
+		System.out.println(result);
+	}
 
 }

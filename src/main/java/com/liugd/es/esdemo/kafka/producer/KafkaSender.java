@@ -1,6 +1,5 @@
 package com.liugd.es.esdemo.kafka.producer;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -8,15 +7,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
+import org.springframework.util.concurrent.ListenableFuture;
 
 @Component
-public class KafkaSender implements Serializable{
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 3198648376706221936L;
+public class KafkaSender{
 
 	Logger log = LoggerFactory.getLogger(getClass());
 	
@@ -28,6 +24,7 @@ public class KafkaSender implements Serializable{
      */
     public void sendTest(){
     	log.info("消息发送");
-        kafkaTemplate.send("test","hello,kafka  "  + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")));
+        ListenableFuture<SendResult<String,String>> send = kafkaTemplate.send("test","test","hello,kafka  "  + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")));
+        send.addCallback(new DemoProduceCallback());
     }
 }

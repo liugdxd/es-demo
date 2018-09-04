@@ -9,9 +9,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-
-import com.sitech.ijcf.boot.core.aop.advisor.DefaultTransactionInterceptor;
 
 /**
  * @author liugd
@@ -23,7 +20,7 @@ import com.sitech.ijcf.boot.core.aop.advisor.DefaultTransactionInterceptor;
 @Configuration
 public class AopAutoConfiguration {
 
-    @Bean(name = "txManager")
+ /*   @Bean(name = "txManager")
     public DataSourceTransactionManager getTx(DataSource dataSource) {
 
         DataSourceTransactionManager dsTx = new DataSourceTransactionManager(dataSource);
@@ -46,7 +43,7 @@ public class AopAutoConfiguration {
 
 
         return tsi;
-    }
+    }*/
 	
 	
 	
@@ -54,7 +51,7 @@ public class AopAutoConfiguration {
     public BeanNameAutoProxyCreator txProxy() {
         BeanNameAutoProxyCreator creator = new BeanNameAutoProxyCreator();
 
-        creator.setInterceptorNames(getTargetAopNames());
+//        creator.setInterceptorNames(getTargetAopNames());
 
 
         creator.setBeanNames("*Svc");

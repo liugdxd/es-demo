@@ -16,12 +16,13 @@ public class KafkaConsumer {
     @KafkaListener(topics = {"test"})
     @Profile(value="devAh")
     public void consumer(String message){
-        log.info("test topic message : {}", message);
+        log.info("AH test topic message : {}", message);
     }
     
+    @KafkaListener(topics = {"test"})
     @Profile(value="devBj")
     public void consumerBj(String message){
-        log.info("test topic message : {}", message);
+        log.info("BJ test topic message : {}", message);
     }
     
     

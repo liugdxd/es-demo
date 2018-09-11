@@ -4,7 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 
-@Document(indexName = "nginx-access-log-2018.08.28",type = "doc", shards = 5,replicas = 1, refreshInterval = "-1")
+@Document(indexName = "nginx-access-log-2018.09.12",type = "doc", shards = 5,replicas = 1, refreshInterval = "-1")
 public class SipLog {
 	@Id
 	private String id;

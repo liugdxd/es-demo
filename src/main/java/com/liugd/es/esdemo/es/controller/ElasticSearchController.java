@@ -35,6 +35,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/es")
 @Slf4j
 public class ElasticSearchController{
+	
 	@Autowired
 	private LogDao logDao;
 

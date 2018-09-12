@@ -4,7 +4,12 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 
-@Document(indexName = "nginx-access-log-2018.09.12",type = "doc", shards = 5,replicas = 1, refreshInterval = "-1")
+import lombok.Getter;
+import lombok.Setter;
+
+@Document(indexName = "nginx-access-log-2018.09.12",type = "doc")
+@Getter
+@Setter
 public class SipLog {
 	@Id
 	private String id;
@@ -29,68 +34,10 @@ public class SipLog {
 	@Field
 	private String type;
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getReferer() {
-		return referer;
-	}
-
-	public void setReferer(String referer) {
-		this.referer = referer;
-	}
-
-	public String getRemoteAddr() {
-		return remoteAddr;
-	}
-
-	public void setRemoteAddr(String remoteAddr) {
-		this.remoteAddr = remoteAddr;
-	}
-
-	public String getRequest() {
-		return request;
-	}
-
-	public void setRequest(String request) {
-		this.request = request;
-	}
-
-	public String getAgent() {
-		return agent;
-	}
-
-	public void setAgent(String agent) {
-		this.agent = agent;
-	}
-
-	public String getX_forwarded() {
-		return x_forwarded;
-	}
-
-	public void setX_forwarded(String x_forwarded) {
-		this.x_forwarded = x_forwarded;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
+	@Override
+	public String toString() {
+		return "SipLog [id=" + id + ", referer=" + referer + ", remoteAddr=" + remoteAddr + ", request=" + request
+				+ ", agent=" + agent + ", x_forwarded=" + x_forwarded + ", message=" + message + ", type=" + type + "]";
 	}
 	
 }

@@ -9,9 +9,8 @@ import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooKeeper;
-import org.springframework.context.annotation.Configuration;
 
-@Configuration
+
 public class Executor implements Watcher, Runnable, DataMonitor.DataMonitorListener {
 	String znode;
 

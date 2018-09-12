@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 import com.liugd.es.esdemo.kafka.producer.KafkaSender;
@@ -26,7 +25,7 @@ public class EsDemoApplication {
 	}
 	
 	 //然后每隔1分钟执行一次
-    @Scheduled(fixedRate = 1000)
+//    @Scheduled(fixedRate = 1000)
     public void testKafka() throws Exception {
         kafkaSender.sendTest();
     }

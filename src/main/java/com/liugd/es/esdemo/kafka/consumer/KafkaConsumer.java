@@ -13,14 +13,12 @@ public class KafkaConsumer {
      * 监听test主题,有消息就读取
      * @param message
      */
-    @KafkaListener(topics = {"test"})
-    @Profile(value="devAh")
+//    @KafkaListener(topics = {"test"})
     public void consumer(String message){
         log.info("AH test topic message : {}", message);
     }
     
-    @KafkaListener(topics = {"test"})
-    @Profile(value="devBj")
+//    @KafkaListener(topics = {"test"})
     public void consumerBj(String message){
         log.info("BJ test topic message : {}", message);
     }

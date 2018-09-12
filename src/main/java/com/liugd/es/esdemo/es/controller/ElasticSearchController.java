@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alibaba.fastjson.JSON;
 import com.liugd.es.esdemo.es.dao.LogDao;
 import com.liugd.es.esdemo.es.entity.SipLog;
 
@@ -80,7 +81,8 @@ public class ElasticSearchController{
 					 if (response.getHits().getHits().length <= 0) {
 	                        return null;
 	                    }
-					 SipLog sipLog = new SipLog();
+					 String json = searchHit.getSourceAsString();
+					 SipLog  sipLog = JSON.parseObject(json, SipLog.class);
 					 sipLog.setId(searchHit.getId());
 					 HighlightField message = searchHit.getHighlightFields().get("message");
 					 if(message != null){
